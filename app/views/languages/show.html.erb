@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lang off:</strong>
+  <%= @language.lang_off %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @language.name %>
+</p>
+
+<p>
+  <strong>French name:</strong>
+  <%= @language.french_name %>
+</p>
+
+<p>
+  <strong>Ethno:</strong>
+  <%= @language.ethno %>
+</p>
+
+<p>
+  <strong>Alcam:</strong>
+  <%= @language.alcam %>
+</p>
+
+<p>
+  <strong>Alcno:</strong>
+  <%= @language.alcno %>
+</p>
+
+<p>
+  <strong>Alcnotes:</strong>
+  <%= @language.alcnotes %>
+</p>
+
+<p>
+  <strong>Ethnotes:</strong>
+  <%= @language.ethnotes %>
+</p>
+
+<p>
+  <strong>Part of country:</strong>
+  <%= @language.part_of_country %>
+</p>
+
+<%= link_to 'Edit', edit_language_path(@language) %> |
+<%= link_to 'Back', languages_path %>

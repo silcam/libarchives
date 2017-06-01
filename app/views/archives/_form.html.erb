@@ -1,0 +1,182 @@
+<%= form_with(model: archive, local: true) do |form| %>
+  <% if archive.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(archive.errors.count, "error") %> prohibited this archive from being saved:</h2>
+
+      <ul>
+      <% archive.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number, id: :archive_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :document_type_id %>
+    <%= form.text_field :document_type_id, id: :archive_document_type_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :backup_number %>
+    <%= form.text_field :backup_number, id: :archive_backup_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :capacity %>
+    <%= form.text_field :capacity, id: :archive_capacity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.text_field :year, id: :archive_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :archive_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :english_title %>
+    <%= form.text_field :english_title, id: :archive_english_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :french_title %>
+    <%= form.text_field :french_title, id: :archive_french_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title_of_book_reviewed %>
+    <%= form.text_field :title_of_book_reviewed, id: :archive_title_of_book_reviewed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author_book_reviewed %>
+    <%= form.text_field :author_book_reviewed, id: :archive_author_book_reviewed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :journal_name %>
+    <%= form.text_field :journal_name, id: :archive_journal_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :journal_vol %>
+    <%= form.text_field :journal_vol, id: :archive_journal_vol %>
+  </div>
+
+  <div class="field">
+    <%= form.label :journal_num %>
+    <%= form.text_field :journal_num, id: :archive_journal_num %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title_of_book_containing_article %>
+    <%= form.text_field :title_of_book_containing_article, id: :archive_title_of_book_containing_article %>
+  </div>
+
+  <div class="field">
+    <%= form.label :details_of_referenced_book %>
+    <%= form.text_field :details_of_referenced_book, id: :archive_details_of_referenced_book %>
+  </div>
+
+  <div class="field">
+    <%= form.label :series_editor %>
+    <%= form.text_field :series_editor, id: :archive_series_editor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :series_name %>
+    <%= form.text_field :series_name, id: :archive_series_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :series_number %>
+    <%= form.text_field :series_number, id: :archive_series_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :place_of_publication %>
+    <%= form.text_field :place_of_publication, id: :archive_place_of_publication %>
+  </div>
+
+  <div class="field">
+    <%= form.label :publisher %>
+    <%= form.text_field :publisher, id: :archive_publisher %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thesis_type %>
+    <%= form.text_field :thesis_type, id: :archive_thesis_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :university %>
+    <%= form.text_field :university, id: :archive_university %>
+  </div>
+
+  <div class="field">
+    <%= form.label :conference_info %>
+    <%= form.text_field :conference_info, id: :archive_conference_info %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pages %>
+    <%= form.text_field :pages, id: :archive_pages %>
+  </div>
+
+  <div class="field">
+    <%= form.label :edition %>
+    <%= form.text_field :edition, id: :archive_edition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :copies_printed %>
+    <%= form.text_field :copies_printed, id: :archive_copies_printed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :illustrations %>
+    <%= form.text_field :illustrations, id: :archive_illustrations %>
+  </div>
+
+  <div class="field">
+    <%= form.label :summary %>
+    <%= form.text_area :summary, id: :archive_summary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :language_id %>
+    <%= form.text_field :language_id, id: :archive_language_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bilingual_notes %>
+    <%= form.text_field :bilingual_notes, id: :archive_bilingual_notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :microfiche_info %>
+    <%= form.text_field :microfiche_info, id: :archive_microfiche_info %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, id: :archive_notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :web_address %>
+    <%= form.text_field :web_address, id: :archive_web_address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

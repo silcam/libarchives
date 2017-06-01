@@ -1,0 +1,71 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  document_type: one
+  backup_number: MyString
+  capacity: MyString
+  year: 
+  title: MyString
+  english_title: MyString
+  french_title: MyString
+  title_of_book_reviewed: MyString
+  author_book_reviewed: MyString
+  journal_name: MyString
+  journal_vol: MyString
+  journal_num: MyString
+  title_of_book_containing_article: MyString
+  details_of_referenced_book: MyString
+  series_editor: MyString
+  series_name: MyString
+  series_number: MyString
+  place_of_publication: MyString
+  publisher: MyString
+  thesis_type: MyString
+  university: MyString
+  conference_info: MyString
+  pages: MyString
+  edition: MyString
+  copies_printed: MyString
+  illustrations: MyString
+  summary: MyText
+  language: one
+  bilingual_notes: MyString
+  microfiche_info: MyString
+  notes: MyText
+  web_address: MyString
+
+two:
+  number: MyString
+  document_type: two
+  backup_number: MyString
+  capacity: MyString
+  year: 
+  title: MyString
+  english_title: MyString
+  french_title: MyString
+  title_of_book_reviewed: MyString
+  author_book_reviewed: MyString
+  journal_name: MyString
+  journal_vol: MyString
+  journal_num: MyString
+  title_of_book_containing_article: MyString
+  details_of_referenced_book: MyString
+  series_editor: MyString
+  series_name: MyString
+  series_number: MyString
+  place_of_publication: MyString
+  publisher: MyString
+  thesis_type: MyString
+  university: MyString
+  conference_info: MyString
+  pages: MyString
+  edition: MyString
+  copies_printed: MyString
+  illustrations: MyString
+  summary: MyText
+  language: two
+  bilingual_notes: MyString
+  microfiche_info: MyString
+  notes: MyText
+  web_address: MyString

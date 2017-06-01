@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  archive: one
+  archive_number: MyString
+  destination: one
+  date: 2017-06-01 11:09:52
+
+two:
+  archive: two
+  archive_number: MyString
+  destination: two
+  date: 2017-06-01 11:09:52

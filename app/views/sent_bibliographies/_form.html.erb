@@ -1,0 +1,37 @@
+<%= form_with(model: sent_bibliography, local: true) do |form| %>
+  <% if sent_bibliography.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sent_bibliography.errors.count, "error") %> prohibited this sent_bibliography from being saved:</h2>
+
+      <ul>
+      <% sent_bibliography.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :archive_id %>
+    <%= form.text_field :archive_id, id: :sent_bibliography_archive_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :archive_number %>
+    <%= form.text_field :archive_number, id: :sent_bibliography_archive_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :destination_id %>
+    <%= form.text_field :destination_id, id: :sent_bibliography_destination_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date, id: :sent_bibliography_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

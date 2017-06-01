@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lang_off: MyString
+  name: MyString
+  french_name: MyString
+  ethno: MyString
+  alcam: MyString
+  alcno: MyString
+  alcnotes: MyText
+  ethnotes: MyText
+  part_of_country: MyString
+
+two:
+  lang_off: MyString
+  name: MyString
+  french_name: MyString
+  ethno: MyString
+  alcam: MyString
+  alcno: MyString
+  alcnotes: MyText
+  ethnotes: MyText
+  part_of_country: MyString

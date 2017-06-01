@@ -1,0 +1,62 @@
+<%= form_with(model: language, local: true) do |form| %>
+  <% if language.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(language.errors.count, "error") %> prohibited this language from being saved:</h2>
+
+      <ul>
+      <% language.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :lang_off %>
+    <%= form.text_field :lang_off, id: :language_lang_off %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :language_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :french_name %>
+    <%= form.text_field :french_name, id: :language_french_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ethno %>
+    <%= form.text_field :ethno, id: :language_ethno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alcam %>
+    <%= form.text_field :alcam, id: :language_alcam %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alcno %>
+    <%= form.text_field :alcno, id: :language_alcno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alcnotes %>
+    <%= form.text_area :alcnotes, id: :language_alcnotes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ethnotes %>
+    <%= form.text_area :ethnotes, id: :language_ethnotes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :part_of_country %>
+    <%= form.text_field :part_of_country, id: :language_part_of_country %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  standard: 
+  document_type: one
+  field: one
+  sequence: 
+  format: MyString
+
+two:
+  standard: 
+  document_type: two
+  field: two
+  sequence: 
+  format: MyString

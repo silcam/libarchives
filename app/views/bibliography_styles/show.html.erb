@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Standard:</strong>
+  <%= @bibliography_style.standard %>
+</p>
+
+<p>
+  <strong>Document type:</strong>
+  <%= @bibliography_style.document_type %>
+</p>
+
+<p>
+  <strong>Field:</strong>
+  <%= @bibliography_style.field %>
+</p>
+
+<p>
+  <strong>Sequence:</strong>
+  <%= @bibliography_style.sequence %>
+</p>
+
+<p>
+  <strong>Format:</strong>
+  <%= @bibliography_style.format %>
+</p>
+
+<%= link_to 'Edit', edit_bibliography_style_path(@bibliography_style) %> |
+<%= link_to 'Back', bibliography_styles_path %>

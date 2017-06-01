@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Archive:</strong>
+  <%= @sent_bibliography.archive %>
+</p>
+
+<p>
+  <strong>Archive number:</strong>
+  <%= @sent_bibliography.archive_number %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @sent_bibliography.destination %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @sent_bibliography.date %>
+</p>
+
+<%= link_to 'Edit', edit_sent_bibliography_path(@sent_bibliography) %> |
+<%= link_to 'Back', sent_bibliographies_path %>

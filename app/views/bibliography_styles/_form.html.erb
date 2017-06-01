@@ -1,0 +1,42 @@
+<%= form_with(model: bibliography_style, local: true) do |form| %>
+  <% if bibliography_style.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bibliography_style.errors.count, "error") %> prohibited this bibliography_style from being saved:</h2>
+
+      <ul>
+      <% bibliography_style.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :standard %>
+    <%= form.text_field :standard, id: :bibliography_style_standard %>
+  </div>
+
+  <div class="field">
+    <%= form.label :document_type_id %>
+    <%= form.text_field :document_type_id, id: :bibliography_style_document_type_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :field_id %>
+    <%= form.text_field :field_id, id: :bibliography_style_field_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sequence %>
+    <%= form.text_field :sequence, id: :bibliography_style_sequence %>
+  </div>
+
+  <div class="field">
+    <%= form.label :format %>
+    <%= form.text_field :format, id: :bibliography_style_format %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

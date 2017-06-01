@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bibliography Styles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Standard</th>
+      <th>Document type</th>
+      <th>Field</th>
+      <th>Sequence</th>
+      <th>Format</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bibliography_styles.each do |bibliography_style| %>
+      <tr>
+        <td><%= bibliography_style.standard %></td>
+        <td><%= bibliography_style.document_type %></td>
+        <td><%= bibliography_style.field %></td>
+        <td><%= bibliography_style.sequence %></td>
+        <td><%= bibliography_style.format %></td>
+        <td><%= link_to 'Show', bibliography_style %></td>
+        <td><%= link_to 'Edit', edit_bibliography_style_path(bibliography_style) %></td>
+        <td><%= link_to 'Destroy', bibliography_style, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bibliography Style', new_bibliography_style_path %>
