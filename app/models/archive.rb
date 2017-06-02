@@ -14,7 +14,20 @@ class Archive < ApplicationRecord
     language.name if language
   end
 
-  def search query
-    fields = [:title, :english_title, :french_title]
+  def self.search query
+
+
+    fields = %w[archives.title archives.english_title archives.french_title authors.surname authors.initials
+                languages.name archives.journal_name archives.title_of_book_reviewed
+                archives.author_book_reviewed archives.title_of_book_containing_article
+                archives.series_name archives.place_of_publication archives.publisher
+                archives.university]
+    archives = []
+    fields.each do |field|
+      Archive.joins(:authors).joins(:language).where("#{field} LIKE ?", "%#{query}%").each do |a|
+        archives << a unless archives.include? a
+      end
+    end
+    archives
   end
 end

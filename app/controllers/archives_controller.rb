@@ -11,7 +11,7 @@ class ArchivesController < ApplicationController
       @last_query = params[:q]
       @archives = Archive.search params[:q]
     else
-      @archives = Archive.all
+      @archives = Archive.all.limit(100)
     end
   end
 
