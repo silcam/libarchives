@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'archives#home'
+
   resources :sent_bibliographies
   resources :archives
   resources :subcategories

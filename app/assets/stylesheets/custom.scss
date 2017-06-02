@@ -1,0 +1,29 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+div#home-body {
+  background-color: #333333;
+  width: 100%;
+  height: 100%;
+}
+
+div#home-centered {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div#home-controls {
+  background-color: #ffffff;
+  border: 3px solid black;
+}
+
+.local-form-control {
+  width: 200px;
+  display: inline;
+}
+
+.local-div {
+  padding: 40px;
+}

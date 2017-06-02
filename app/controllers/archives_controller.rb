@@ -1,10 +1,18 @@
 class ArchivesController < ApplicationController
   before_action :set_archive, only: [:show, :edit, :update, :destroy]
 
+  def home
+
+  end
   # GET /archives
   # GET /archives.json
   def index
-    @archives = Archive.all
+    if params[:q]
+      @last_query = params[:q]
+      @archives = Archive.search params[:q]
+    else
+      @archives = Archive.all
+    end
   end
 
   # GET /archives/1

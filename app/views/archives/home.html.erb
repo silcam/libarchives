@@ -1,0 +1,23 @@
+<style>
+  body {background-color: #666666;}
+</style>
+
+<div id="home-centered">
+  <div id="home-logo">
+    <h1>CMB: Archives</h1>
+  </div>
+
+  <div id="home-controls">
+    <div class="local-div">
+      <%= form_tag(archives_path, method: :get) do %>
+        <%= label_tag(:q, 'Search:', class: 'h3') %>
+        <%= text_field_tag(:q, '', class: 'form-control local-form-control') %>
+        <%= submit_tag 'Search', class: 'btn btn-lg btn-primary' %>
+      <% end %>
+    </div>
+
+    <div class="local-div">
+      <%= button_to 'New Archive', new_archive_path, method: :get, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+</div>
