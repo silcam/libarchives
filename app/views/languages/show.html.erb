@@ -1,13 +1,16 @@
+<h2><%= @language.name %></h2>
+
+<% if logged_in? %>
+    <p>
+      <%= link_to 'Edit', edit_language_path(@language) %>
+    </p>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Lang off:</strong>
   <%= @language.lang_off %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @language.name %>
 </p>
 
 <p>
@@ -45,5 +48,22 @@
   <%= @language.part_of_country %>
 </p>
 
-<%= link_to 'Edit', edit_language_path(@language) %> |
-<%= link_to 'Back', languages_path %>
+<h3>Related Archives</h3>
+<table class="table">
+  <tr>
+    <th>Archive Number</th>
+    <th>Title</th>
+    <th>Authors</th>
+  </tr>
+  <% @language.archives.each do |archive| %>
+    <tr>
+      <td><%= archive.number %></td>
+      <td><%= link_to archive.title, archive %></td>
+      <td>
+        <% archive.authors.each do |author| %>
+          <%= link_to author.surname, author %><%= ', ' unless author == archive.authors.last %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

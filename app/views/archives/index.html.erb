@@ -3,7 +3,7 @@
 <h1>Archives</h1>
 
 <% if logged_in? %>
-  <%= button_to 'New Archive', new_archive_path, class: 'btn btn-primary' %>
+  <%= button_to 'New Archive', new_archive_path, method: :get, class: 'btn btn-primary' %>
 <% end %>
 
 <table class="table">

@@ -53,7 +53,7 @@
 
   <div class="field">
     <%= form.label :part_of_country %>
-    <%= form.text_field :part_of_country, id: :language_part_of_country %>
+    <%= form.select :part_of_country, options_for_select([['',''],['Anglophone', 'anglophone'],['Francophone', 'francophone']]), id: :language_part_of_country %>
   </div>
 
   <div class="actions">

@@ -2,37 +2,27 @@
 
 <h1>Languages</h1>
 
+<% if logged_in? %>
+    <p><%= button_to 'Add Language', new_language_path, method: :get, class: 'btn btn-primary' %></p>
+<% end %>
+
 <table>
   <thead>
     <tr>
-      <th>Lang off</th>
       <th>Name</th>
       <th>French name</th>
       <th>Ethno</th>
-      <th>Alcam</th>
-      <th>Alcno</th>
-      <th>Alcnotes</th>
-      <th>Ethnotes</th>
-      <th>Part of country</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @languages.each do |language| %>
       <tr>
-        <td><%= language.lang_off %></td>
-        <td><%= language.name %></td>
+        <td><%= link_to language.name, language %></td>
         <td><%= language.french_name %></td>
         <td><%= language.ethno %></td>
-        <td><%= language.alcam %></td>
-        <td><%= language.alcno %></td>
-        <td><%= language.alcnotes %></td>
-        <td><%= language.ethnotes %></td>
-        <td><%= language.part_of_country %></td>
-        <td><%= link_to 'Show', language %></td>
-        <td><%= link_to 'Edit', edit_language_path(language) %></td>
-        <td><%= link_to 'Destroy', language, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View Archives', archives_path(language: language) %></td>
       </tr>
     <% end %>
   </tbody>

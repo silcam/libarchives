@@ -30,4 +30,8 @@ class Archive < ApplicationRecord
     end
     archives
   end
+
+  def to_s
+    title
+  end
 end

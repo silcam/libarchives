@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :language_id %>
+    <%= form.collection_select :language_id, Language.all.order(:name), :id, :name, id: :archive_language_id %>
+  </div>
+
+  <div class="field">
     <%= form.label :number %>
     <%= form.text_field :number, id: :archive_number %>
   </div>
@@ -149,11 +154,6 @@
   <div class="field">
     <%= form.label :summary %>
     <%= form.text_area :summary, id: :archive_summary %>
-  </div>
-
-  <div class="field">
-    <%= form.label :language_id %>
-    <%= form.text_field :language_id, id: :archive_language_id %>
   </div>
 
   <div class="field">

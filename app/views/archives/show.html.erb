@@ -24,13 +24,13 @@
 
 <p>
   <strong>Language:</strong>
-  <%= @archive.language_name %>
+  <%= link_to @archive.language_name, @archive.language %>
 </p>
 
 <p>
   <strong><%= 'Author'.pluralize(@archive.authors.count) %>:</strong>
   <% @archive.authors.each do |author| %>
-      <%= author.initials %> <%= author.surname %><br>
+      <%= link_to "#{author.initials} #{author.surname}", author %><br>
   <% end %>
 </p>
 
