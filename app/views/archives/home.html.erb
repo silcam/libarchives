@@ -1,5 +1,5 @@
 <style>
-  body {background-color: #666666;}
+  body {background-color: #212121;}
 </style>
 
 <div id="home-centered">
@@ -10,14 +10,33 @@
   <div id="home-controls">
     <div class="local-div">
       <%= form_tag(archives_path, method: :get) do %>
-        <%= label_tag(:q, 'Search:', class: 'h3') %>
-        <%= text_field_tag(:q, '', class: 'form-control local-form-control') %>
+        <%= text_field_tag(:q, '', class: 'form-control local-form-control', placeholder: 'Title, Author name, language etc...') %>
         <%= submit_tag 'Search', class: 'btn btn-lg btn-primary' %>
       <% end %>
     </div>
 
     <div class="local-div">
-      <%= button_to 'New Archive', new_archive_path, method: :get, class: 'btn btn-lg btn-primary' %>
+      <%= form_tag(archives_path, method: :get) do %>
+          <%= label_tag 'View archives by Language:' %>
+          <%= select_tag(:language, options_from_collection_for_select(Language.all.order(:name), :id, :name)) %>
+          <%= submit_tag 'Search', class: 'btn btn-lg btn-primary' %>
+      <% end %>
+    </div>
+
+    <div class="local-div">
+      <ul>
+        <li class="h4"><%= link_to 'All Archives', archives_path  %></li>
+        <li class="h4"><%= link_to 'Authors', authors_path  %></li>
+        <li class="h4"><%= link_to 'Languages', languages_path  %></li>
+      </ul>
+    </div>
+
+    <div class="local-div">
+      <% if logged_in? %>
+        <%= button_to 'New Archive', new_archive_path, method: :get, class: 'btn btn-primary btn-lg' %>
+      <% else %>
+        <%= button_to 'Librarian Log-in', '/login', method: :get, class: 'btn btn-primary btn-lg' %>
+      <% end %>
     </div>
   </div>
 </div>

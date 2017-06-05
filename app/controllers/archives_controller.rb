@@ -10,8 +10,10 @@ class ArchivesController < ApplicationController
     if params[:q]
       @last_query = params[:q]
       @archives = Archive.search params[:q]
+    elsif params[:language]
+      @archives = Language.find(params[:language]).archives
     else
-      @archives = Archive.all.limit(100)
+      @archives = Archive.all
     end
   end
 

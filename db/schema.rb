@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170602094313) do
+ActiveRecord::Schema.define(version: 20170605132810) do
 
   create_table "archives", force: :cascade do |t|
     t.string "number"
@@ -138,6 +138,12 @@ ActiveRecord::Schema.define(version: 20170602094313) do
     t.text "alcnotes"
     t.text "ethnotes"
     t.string "part_of_country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "passwords", force: :cascade do |t|
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,10 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-div#home-body {
-  background-color: #333333;
-  width: 100%;
-  height: 100%;
+body {
+  padding-top: 50px;
 }
 
 div#home-centered {
@@ -15,15 +13,35 @@ div#home-centered {
 }
 
 div#home-controls {
-  background-color: #ffffff;
+  background-color: white;
   border: 3px solid black;
 }
 
 .local-form-control {
-  width: 200px;
+  width: 300px;
   display: inline;
 }
 
 .local-div {
-  padding: 40px;
+  padding: 20px;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: #0000ee;
+
+  &:visited {
+    color: #0000ee;
+  }
+
+  &:hover {
+    color: #0000ee;
+  }
 }

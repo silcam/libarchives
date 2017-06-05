@@ -1,33 +1,35 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
+  <h2>
+    <%= @archive.title %>
+  </h2>
+</p>
+
+<p>
+  <%= link_to 'Edit Entry', edit_archive_path(@archive) %>
+</p>
+
+<p>
+  <strong>Archive Number:</strong>
   <%= @archive.number %>
 </p>
 
 <p>
   <strong>Document type:</strong>
-  <%= @archive.document_type %>
+  <%= @archive.document_type_name %>
 </p>
 
 <p>
-  <strong>Backup number:</strong>
-  <%= @archive.backup_number %>
+  <strong>Language:</strong>
+  <%= @archive.language_name %>
 </p>
 
 <p>
-  <strong>Capacity:</strong>
-  <%= @archive.capacity %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @archive.year %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @archive.title %>
+  <strong><%= 'Author'.pluralize(@archive.authors.count) %>:</strong>
+  <% @archive.authors.each do |author| %>
+      <%= author.initials %> <%= author.surname %><br>
+  <% end %>
 </p>
 
 <p>
@@ -39,131 +41,146 @@
   <strong>French title:</strong>
   <%= @archive.french_title %>
 </p>
+<hr>
+<div class="row">
+  <div class="col-md-4">
 
-<p>
-  <strong>Title of book reviewed:</strong>
-  <%= @archive.title_of_book_reviewed %>
-</p>
 
-<p>
-  <strong>Author book reviewed:</strong>
-  <%= @archive.author_book_reviewed %>
-</p>
+    <p>
+      <strong>Backup number:</strong>
+      <%= @archive.backup_number %>
+    </p>
 
-<p>
-  <strong>Journal name:</strong>
-  <%= @archive.journal_name %>
-</p>
+    <p>
+      <strong>Capacity:</strong>
+      <%= @archive.capacity %>
+    </p>
 
-<p>
-  <strong>Journal vol:</strong>
-  <%= @archive.journal_vol %>
-</p>
+    <p>
+      <strong>Year:</strong>
+      <%= @archive.year %>
+    </p>
 
-<p>
-  <strong>Journal num:</strong>
-  <%= @archive.journal_num %>
-</p>
+    <p>
+      <strong>Title of book reviewed:</strong>
+      <%= @archive.title_of_book_reviewed %>
+    </p>
 
-<p>
-  <strong>Title of book containing article:</strong>
-  <%= @archive.title_of_book_containing_article %>
-</p>
+    <p>
+      <strong>Author book reviewed:</strong>
+      <%= @archive.author_book_reviewed %>
+    </p>
 
-<p>
-  <strong>Details of referenced book:</strong>
-  <%= @archive.details_of_referenced_book %>
-</p>
+    <p>
+      <strong>Journal name:</strong>
+      <%= @archive.journal_name %>
+    </p>
 
-<p>
-  <strong>Series editor:</strong>
-  <%= @archive.series_editor %>
-</p>
+    <p>
+      <strong>Journal vol:</strong>
+      <%= @archive.journal_vol %>
+    </p>
 
-<p>
-  <strong>Series name:</strong>
-  <%= @archive.series_name %>
-</p>
+    <p>
+      <strong>Journal num:</strong>
+      <%= @archive.journal_num %>
+    </p>
 
-<p>
-  <strong>Series number:</strong>
-  <%= @archive.series_number %>
-</p>
+    <p>
+      <strong>Title of book containing article:</strong>
+      <%= @archive.title_of_book_containing_article %>
+    </p>
 
-<p>
-  <strong>Place of publication:</strong>
-  <%= @archive.place_of_publication %>
-</p>
+    <p>
+      <strong>Details of referenced book:</strong>
+      <%= @archive.details_of_referenced_book %>
+    </p>
 
-<p>
-  <strong>Publisher:</strong>
-  <%= @archive.publisher %>
-</p>
+    <p>
+      <strong>Series editor:</strong>
+      <%= @archive.series_editor %>
+    </p>
 
-<p>
-  <strong>Thesis type:</strong>
-  <%= @archive.thesis_type %>
-</p>
+    <p>
+      <strong>Series name:</strong>
+      <%= @archive.series_name %>
+    </p>
 
-<p>
-  <strong>University:</strong>
-  <%= @archive.university %>
-</p>
+    <p>
+      <strong>Series number:</strong>
+      <%= @archive.series_number %>
+    </p>
 
-<p>
-  <strong>Conference info:</strong>
-  <%= @archive.conference_info %>
-</p>
+    <p>
+      <strong>Place of publication:</strong>
+      <%= @archive.place_of_publication %>
+    </p>
 
-<p>
-  <strong>Pages:</strong>
-  <%= @archive.pages %>
-</p>
+    <p>
+      <strong>Publisher:</strong>
+      <%= @archive.publisher %>
+    </p>
+  </div>
+  <div class="col-md-4">
 
-<p>
-  <strong>Edition:</strong>
-  <%= @archive.edition %>
-</p>
+    <p>
+      <strong>Thesis type:</strong>
+      <%= @archive.thesis_type %>
+    </p>
 
-<p>
-  <strong>Copies printed:</strong>
-  <%= @archive.copies_printed %>
-</p>
+    <p>
+      <strong>University:</strong>
+      <%= @archive.university %>
+    </p>
 
-<p>
-  <strong>Illustrations:</strong>
-  <%= @archive.illustrations %>
-</p>
+    <p>
+      <strong>Conference info:</strong>
+      <%= @archive.conference_info %>
+    </p>
 
-<p>
-  <strong>Summary:</strong>
-  <%= @archive.summary %>
-</p>
+    <p>
+      <strong>Pages:</strong>
+      <%= @archive.pages %>
+    </p>
 
-<p>
-  <strong>Language:</strong>
-  <%= @archive.language %>
-</p>
+    <p>
+      <strong>Edition:</strong>
+      <%= @archive.edition %>
+    </p>
 
-<p>
-  <strong>Bilingual notes:</strong>
-  <%= @archive.bilingual_notes %>
-</p>
+    <p>
+      <strong>Copies printed:</strong>
+      <%= @archive.copies_printed %>
+    </p>
 
-<p>
-  <strong>Microfiche info:</strong>
-  <%= @archive.microfiche_info %>
-</p>
+    <p>
+      <strong>Illustrations:</strong>
+      <%= @archive.illustrations %>
+    </p>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @archive.notes %>
-</p>
+    <p>
+      <strong>Summary:</strong>
+      <%= @archive.summary %>
+    </p>
 
-<p>
-  <strong>Web address:</strong>
-  <%= @archive.web_address %>
-</p>
+    <p>
+      <strong>Bilingual notes:</strong>
+      <%= @archive.bilingual_notes %>
+    </p>
 
-<%= link_to 'Edit', edit_archive_path(@archive) %> |
-<%= link_to 'Back', archives_path %>
+    <p>
+      <strong>Microfiche info:</strong>
+      <%= @archive.microfiche_info %>
+    </p>
+
+    <p>
+      <strong>Notes:</strong>
+      <%= @archive.notes %>
+    </p>
+
+    <p>
+      <strong>Web address:</strong>
+      <%= @archive.web_address %>
+    </p>
+  </div>
+</div>

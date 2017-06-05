@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% unless current_page?(controller: 'archives', action: 'home') %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

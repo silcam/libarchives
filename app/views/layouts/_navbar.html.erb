@@ -1,0 +1,18 @@
+<nav class="navbar navbar-fixed-top navbar-inverse" id="app_header">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to(image_tag('cmb_archives_dark.png', size: '207x45'), root_url ,id: 'logo') %>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Archives', archives_path %></li>
+        <li><%= link_to 'Authors', authors_path %></li>
+        <li><%= link_to 'Languages', languages_path %></li>
+      </ul>
+      <ul class=" nav navbar-nav navbar-right">
+        <li><%= link_to 'Search', root_path %></li>
+        <li><%= link_to 'Librarian Log-in',  'login' %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
