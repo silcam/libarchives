@@ -6,9 +6,11 @@
   </h2>
 </p>
 
-<p>
-  <%= link_to 'Edit Entry', edit_archive_path(@archive) %>
-</p>
+<% if logged_in? %>
+  <p>
+    <%= link_to 'Edit Entry', edit_archive_path(@archive) %>
+  </p>
+<% end %>
 
 <p>
   <strong>Archive Number:</strong>

@@ -1,14 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Surname:</strong>
-  <%= @author.surname %>
-</p>
+<h2><%= "#{@author.initials} #{@author.surname}" %></h2>
 
-<p>
-  <strong>Initials:</strong>
-  <%= @author.initials %>
-</p>
+<% if logged_in? %>
+  <p>
+    <%= link_to 'Edit', edit_author_path(@author) %>
+  </p>
+<% end %>
 
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+<h3>Works:</h3>
+<table class="table">
+  <tr>
+    <th>Archive Number</th>
+    <th>Title</th>
+    <th>Language</th>
+  </tr>
+  <% @author.archives.each do |archive| %>
+    <tr>
+      <td><%= archive.number %></td>
+      <td><%=link_to archive.title, archive %></td>
+      <td><%= archive.language_name %></td>
+    </tr>
+  <% end %>
+</table>

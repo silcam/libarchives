@@ -13,6 +13,8 @@ class ArchivesController < ApplicationController
       @archives = Archive.search params[:q]
     elsif params[:language]
       @archives = Language.find(params[:language]).archives
+    elsif params[:author]
+      @archives = Author.find(params[:author]).archives
     else
       @archives = Archive.all
     end
