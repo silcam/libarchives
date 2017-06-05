@@ -1,5 +1,6 @@
 class ArchivesController < ApplicationController
   before_action :set_archive, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_login, only: [:show, :index, :home]
 
   def home
 
