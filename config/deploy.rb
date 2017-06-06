@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock "3.8.1"
 
-set :application, "archives"
+set :application, "libarchives"
 set :repo_url, "git@bitbucket.org:richardjconrad/archives.git"
 set :deploy_via, :remote_cache
 set :passenger_restart_with_touch, true
