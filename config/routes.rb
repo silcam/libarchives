@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'archives#home'
   get '/login', to: 'login#login_form'
   post '/login', to: 'login#login'
+  get '/logout', to: 'login#logout'
   # resources :sent_bibliographies
   resources :archives
   # resources :subcategories

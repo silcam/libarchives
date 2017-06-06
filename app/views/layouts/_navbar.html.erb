@@ -11,8 +11,10 @@
       </ul>
       <ul class=" nav navbar-nav navbar-right">
         <li><%= link_to 'Search', root_path %></li>
-        <% unless logged_in? %>
-          <li><%= link_to 'Librarian Log-in',  'login' %></li>
+        <% if logged_in? %>
+          <li><%= link_to 'Log out', logout_path %></li>
+        <% else %>
+          <li><%= link_to 'Librarian Log-in',  login_path(coming_from: request.path) %></li>
         <% end %>
       </ul>
     </div>
