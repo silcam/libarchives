@@ -31,6 +31,31 @@ class Archive < ApplicationRecord
     archives
   end
 
+  def update_authorships(new_author_ids)
+    new_author_ids.delete('')
+    new_author_ids.uniq!
+    remove_old_authorships new_author_ids
+    add_new_authorships new_author_ids
+  end
+
+  def remove_old_authorships(new_author_ids)
+    authorships.each do |authorship|
+      authorship.destroy unless new_author_ids.include? authorship.author_id
+    end
+  end
+
+  def add_new_authorships(new_author_ids)
+    new_author_ids.each.with_index(1) do |new_author_id, index|
+      existing_authorship = authorships.find_by(author_id: new_author_id)
+      if existing_authorship
+        existing_authorship.update(priority: index) if existing_authorship.priority != index
+      else
+        authorships.create(author_id: new_author_id, priority: index)
+      end
+    end
+  end
+
+
   def to_s
     title
   end

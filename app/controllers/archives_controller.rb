@@ -41,6 +41,7 @@ class ArchivesController < ApplicationController
 
     respond_to do |format|
       if @archive.save
+        @archive.update_authorships params[:authors]
         format.html { redirect_to @archive, notice: 'Archive was successfully created.' }
         format.json { render :show, status: :created, location: @archive }
       else
@@ -55,6 +56,7 @@ class ArchivesController < ApplicationController
   def update
     respond_to do |format|
       if @archive.update(archive_params)
+        @archive.update_authorships params[:authors]
         format.html { redirect_to @archive, notice: 'Archive was successfully updated.' }
         format.json { render :show, status: :ok, location: @archive }
       else

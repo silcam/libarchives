@@ -12,33 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :language_id %>
-    <%= form.collection_select :language_id, Language.all.order(:name), :id, :name, id: :archive_language_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :number %>
+    <%= form.label 'Archive Number' %>
     <%= form.text_field :number, id: :archive_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :document_type_id %>
-    <%= form.text_field :document_type_id, id: :archive_document_type_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :backup_number %>
-    <%= form.text_field :backup_number, id: :archive_backup_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :capacity %>
-    <%= form.text_field :capacity, id: :archive_capacity %>
-  </div>
-
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.text_field :year, id: :archive_year %>
   </div>
 
   <div class="field">
@@ -47,135 +22,191 @@
   </div>
 
   <div class="field">
-    <%= form.label :english_title %>
-    <%= form.text_field :english_title, id: :archive_english_title %>
+    <%= form.label :language_id %>
+    <%= form.collection_select :language_id, Language.all.order(:name), :id, :name, id: :archive_language_id %>
+    <%= link_to 'Add another language to the database', new_language_path %>
   </div>
 
   <div class="field">
-    <%= form.label :french_title %>
-    <%= form.text_field :french_title, id: :archive_french_title %>
+    <%= form.label 'Authors' %>
+    <div id="authors">
+      <% if archive.new_record? %>
+        <%= select_tag 'authors[]', options_from_collection_for_select(Author.all.order(:surname), :id, :surname_and_first), include_blank: true %>
+          <%= link_to 'Add another author to the database', new_author_path %>
+      <% else %>
+        <% archive.authors.each do |author| %>
+          <div class="author-field">
+            <%= select_tag 'authors[]', options_from_collection_for_select(
+                                                  Author.all.order(:surname), :id, :surname_and_first, author.id) %>
+            <button type="button" class="btn btn-link remove-author-field">Remove</button>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="author-field" style="display: none;">
+        <%= select_tag 'authors[]', options_from_collection_for_select(Author.all.order(:surname), :id, :surname_and_first), include_blank: true %>
+        <button type="button" class="btn btn-link remove-author-field">Remove</button>
+      </div>
+    </div>
+    <button type="button" id="add-author-field" class="btn btn-primary">Add Another Author to Archive</button>
   </div>
 
-  <div class="field">
-    <%= form.label :title_of_book_reviewed %>
-    <%= form.text_field :title_of_book_reviewed, id: :archive_title_of_book_reviewed %>
-  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="field">
+        <%= form.label :document_type_id %>
+        <%= form.collection_select :document_type_id, DocumentType.all, :id, :name %>
+      </div>
 
-  <div class="field">
-    <%= form.label :author_book_reviewed %>
-    <%= form.text_field :author_book_reviewed, id: :archive_author_book_reviewed %>
-  </div>
+      <div class="field">
+        <%= form.label :backup_number %>
+        <%= form.text_field :backup_number, id: :archive_backup_number %>
+      </div>
 
-  <div class="field">
-    <%= form.label :journal_name %>
-    <%= form.text_field :journal_name, id: :archive_journal_name %>
-  </div>
+      <div class="field">
+        <%= form.label :capacity %>
+        <%= form.text_field :capacity, id: :archive_capacity %>
+      </div>
 
-  <div class="field">
-    <%= form.label :journal_vol %>
-    <%= form.text_field :journal_vol, id: :archive_journal_vol %>
-  </div>
+      <div class="field">
+        <%= form.label :year %>
+        <%= form.text_field :year, id: :archive_year %>
+      </div>
 
-  <div class="field">
-    <%= form.label :journal_num %>
-    <%= form.text_field :journal_num, id: :archive_journal_num %>
-  </div>
+      <div class="field">
+        <%= form.label :english_title %>
+        <%= form.text_field :english_title, id: :archive_english_title %>
+      </div>
 
-  <div class="field">
-    <%= form.label :title_of_book_containing_article %>
-    <%= form.text_field :title_of_book_containing_article, id: :archive_title_of_book_containing_article %>
-  </div>
+      <div class="field">
+        <%= form.label :french_title %>
+        <%= form.text_field :french_title, id: :archive_french_title %>
+      </div>
 
-  <div class="field">
-    <%= form.label :details_of_referenced_book %>
-    <%= form.text_field :details_of_referenced_book, id: :archive_details_of_referenced_book %>
-  </div>
+      <div class="field">
+        <%= form.label :title_of_book_reviewed %>
+        <%= form.text_field :title_of_book_reviewed, id: :archive_title_of_book_reviewed %>
+      </div>
 
-  <div class="field">
-    <%= form.label :series_editor %>
-    <%= form.text_field :series_editor, id: :archive_series_editor %>
-  </div>
+      <div class="field">
+        <%= form.label :author_book_reviewed %>
+        <%= form.text_field :author_book_reviewed, id: :archive_author_book_reviewed %>
+      </div>
 
-  <div class="field">
-    <%= form.label :series_name %>
-    <%= form.text_field :series_name, id: :archive_series_name %>
-  </div>
+      <div class="field">
+        <%= form.label :journal_name %>
+        <%= form.text_field :journal_name, id: :archive_journal_name %>
+      </div>
 
-  <div class="field">
-    <%= form.label :series_number %>
-    <%= form.text_field :series_number, id: :archive_series_number %>
-  </div>
+      <div class="field">
+        <%= form.label :journal_vol %>
+        <%= form.text_field :journal_vol, id: :archive_journal_vol %>
+      </div>
 
-  <div class="field">
-    <%= form.label :place_of_publication %>
-    <%= form.text_field :place_of_publication, id: :archive_place_of_publication %>
-  </div>
+      <div class="field">
+        <%= form.label :journal_num %>
+        <%= form.text_field :journal_num, id: :archive_journal_num %>
+      </div>
+    </div>
+    <div class="col-md-4">
 
-  <div class="field">
-    <%= form.label :publisher %>
-    <%= form.text_field :publisher, id: :archive_publisher %>
-  </div>
+      <div class="field">
+        <%= form.label :title_of_book_containing_article %>
+        <%= form.text_field :title_of_book_containing_article, id: :archive_title_of_book_containing_article %>
+      </div>
 
-  <div class="field">
-    <%= form.label :thesis_type %>
-    <%= form.text_field :thesis_type, id: :archive_thesis_type %>
-  </div>
+      <div class="field">
+        <%= form.label :details_of_referenced_book %>
+        <%= form.text_field :details_of_referenced_book, id: :archive_details_of_referenced_book %>
+      </div>
 
-  <div class="field">
-    <%= form.label :university %>
-    <%= form.text_field :university, id: :archive_university %>
-  </div>
+      <div class="field">
+        <%= form.label :series_editor %>
+        <%= form.text_field :series_editor, id: :archive_series_editor %>
+      </div>
 
-  <div class="field">
-    <%= form.label :conference_info %>
-    <%= form.text_field :conference_info, id: :archive_conference_info %>
-  </div>
+      <div class="field">
+        <%= form.label :series_name %>
+        <%= form.text_field :series_name, id: :archive_series_name %>
+      </div>
 
-  <div class="field">
-    <%= form.label :pages %>
-    <%= form.text_field :pages, id: :archive_pages %>
-  </div>
+      <div class="field">
+        <%= form.label :series_number %>
+        <%= form.text_field :series_number, id: :archive_series_number %>
+      </div>
 
-  <div class="field">
-    <%= form.label :edition %>
-    <%= form.text_field :edition, id: :archive_edition %>
-  </div>
+      <div class="field">
+        <%= form.label :place_of_publication %>
+        <%= form.text_field :place_of_publication, id: :archive_place_of_publication %>
+      </div>
 
-  <div class="field">
-    <%= form.label :copies_printed %>
-    <%= form.text_field :copies_printed, id: :archive_copies_printed %>
-  </div>
+      <div class="field">
+        <%= form.label :publisher %>
+        <%= form.text_field :publisher, id: :archive_publisher %>
+      </div>
 
-  <div class="field">
-    <%= form.label :illustrations %>
-    <%= form.text_field :illustrations, id: :archive_illustrations %>
-  </div>
+      <div class="field">
+        <%= form.label :thesis_type %>
+        <%= form.text_field :thesis_type, id: :archive_thesis_type %>
+      </div>
 
-  <div class="field">
-    <%= form.label :summary %>
-    <%= form.text_area :summary, id: :archive_summary %>
-  </div>
+      <div class="field">
+        <%= form.label :university %>
+        <%= form.text_field :university, id: :archive_university %>
+      </div>
 
-  <div class="field">
-    <%= form.label :bilingual_notes %>
-    <%= form.text_field :bilingual_notes, id: :archive_bilingual_notes %>
-  </div>
+      <div class="field">
+        <%= form.label :conference_info %>
+        <%= form.text_field :conference_info, id: :archive_conference_info %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :microfiche_info %>
-    <%= form.text_field :microfiche_info, id: :archive_microfiche_info %>
-  </div>
+    <div class="col-md-4">
+      <div class="field">
+        <%= form.label :pages %>
+        <%= form.text_field :pages, id: :archive_pages %>
+      </div>
 
-  <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes, id: :archive_notes %>
-  </div>
+      <div class="field">
+        <%= form.label :edition %>
+        <%= form.text_field :edition, id: :archive_edition %>
+      </div>
 
-  <div class="field">
-    <%= form.label :web_address %>
-    <%= form.text_field :web_address, id: :archive_web_address %>
-  </div>
+      <div class="field">
+        <%= form.label :copies_printed %>
+        <%= form.text_field :copies_printed, id: :archive_copies_printed %>
+      </div>
 
+      <div class="field">
+        <%= form.label :illustrations %>
+        <%= form.text_field :illustrations, id: :archive_illustrations %>
+      </div>
+
+      <div class="field">
+        <%= form.label :summary %>
+        <%= form.text_area :summary, id: :archive_summary %>
+      </div>
+
+      <div class="field">
+        <%= form.label :bilingual_notes %>
+        <%= form.text_field :bilingual_notes, id: :archive_bilingual_notes %>
+      </div>
+
+      <div class="field">
+        <%= form.label :microfiche_info %>
+        <%= form.text_field :microfiche_info, id: :archive_microfiche_info %>
+      </div>
+
+      <div class="field">
+        <%= form.label :notes %>
+        <%= form.text_area :notes, id: :archive_notes %>
+      </div>
+
+      <div class="field">
+        <%= form.label :web_address %>
+        <%= form.text_field :web_address, id: :archive_web_address %>
+      </div>
+    </div>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>
