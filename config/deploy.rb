@@ -6,7 +6,7 @@ set :repo_url, "git@bitbucket.org:richardjconrad/archives.git"
 set :deploy_via, :remote_cache
 set :passenger_restart_with_touch, true
 
-append :linked_files, 'config/secrets.yaml', 'db/production.sqlite3'
+append :linked_files, 'config/secrets.yml', 'db/production.sqlite3'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
