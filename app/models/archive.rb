@@ -38,11 +38,21 @@ class Archive < ApplicationRecord
 
   def save_upload(uploaded_io)
     unless uploaded_io.blank?
-      filename = Rails.root.join('public', 'uploads', 'archives', id.to_s)
-      File.open(filename, 'wb') do |file|
+      path = "/uploads/archives/#{id}#{extract_extension(uploaded_io.original_filename)}"
+      File.open(full_path(path), 'wb') do |file|
         file.write(uploaded_io.read)
       end
-      update file: "/uploads/archives/#{id}"
+      delete_old_file path
+      update file: path
+    end
+  end
+
+  def delete_old_file new_path
+    if !file.blank? &&
+        file != new_path &&
+        File.exist?(full_path(file))
+
+      File.delete full_path(file)
     end
   end
 
@@ -70,6 +80,13 @@ class Archive < ApplicationRecord
     end
   end
 
+  def extract_extension filename
+    filename.include?('.') ? filename[filename.rindex('.'), filename.length-1] : ''
+  end
+
+  def full_path path
+    Rails.root.join('public'+path)
+  end
 
   def to_s
     title
