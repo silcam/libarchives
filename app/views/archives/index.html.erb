@@ -14,6 +14,7 @@
       <th>Document type</th>
       <th>Year</th>
       <th>Language</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -25,6 +26,7 @@
         <td><%= archive.document_type_name %></td>
         <td><%= archive.year %></td>
         <td><%= archive.language_name %></td>
+        <td><%= link_to 'Download', archive.file unless archive.file.blank? %></td>
       </tr>
     <% end %>
   </tbody>
