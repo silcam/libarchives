@@ -31,6 +31,21 @@ class Archive < ApplicationRecord
     archives
   end
 
+  def after_save(new_author_ids, file)
+    update_authorships new_author_ids
+    save_upload file
+  end
+
+  def save_upload(uploaded_io)
+    unless uploaded_io.blank?
+      filename = Rails.root.join('public', 'uploads', 'archives', id.to_s)
+      File.open(filename, 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+      update file: "/uploads/archives/#{id}"
+    end
+  end
+
   def update_authorships(new_author_ids)
     new_author_ids.delete('')
     new_author_ids.uniq!

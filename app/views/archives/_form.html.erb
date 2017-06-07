@@ -50,7 +50,12 @@
     <button type="button" id="add-author-field" class="btn btn-primary">Add Another Author to Archive</button>
   </div>
 
-  <div class="row">
+  <div>
+    <%= form.label (archive.file.blank? ? 'Upload a file:' : 'Replace uploaded file:') %>
+    <%= form.file_field :file %>
+  </div>
+
+  <div class="row" id="section2">
     <div class="col-md-4">
       <div class="field">
         <%= form.label :document_type_id %>

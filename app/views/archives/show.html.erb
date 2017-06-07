@@ -43,6 +43,11 @@
   <strong>French title:</strong>
   <%= @archive.french_title %>
 </p>
+
+<p>
+  <%= link_to 'Download', @archive.file unless @archive.file.blank? %>
+</p>
+
 <hr>
 <div class="row">
   <div class="col-md-4">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605132810) do
+ActiveRecord::Schema.define(version: 20170607111013) do
 
   create_table "archives", force: :cascade do |t|
     t.string "number"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20170605132810) do
     t.string "web_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "file"
     t.index ["document_type_id"], name: "index_archives_on_document_type_id"
     t.index ["language_id"], name: "index_archives_on_language_id"
   end
