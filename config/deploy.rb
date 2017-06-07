@@ -7,6 +7,7 @@ set :deploy_via, :remote_cache
 set :passenger_restart_with_touch, true
 
 append :linked_files, 'config/secrets.yml', 'db/production.sqlite3'
+append :linked_dirs, 'public/uploads'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
