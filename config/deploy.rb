@@ -2,7 +2,7 @@
 lock "3.8.1"
 
 set :application, "libarchives"
-set :repo_url, "git@bitbucket.org:richardjconrad/archives.git"
+set :repo_url, "git@github.com:silcam/libarchives.git"
 set :deploy_via, :remote_cache
 set :passenger_restart_with_touch, true
 
