@@ -10,13 +10,13 @@ class ArchivesController < ApplicationController
   def index
     if params[:q]
       @last_query = params[:q]
-      @archives = Archive.search params[:q]
+      @archives = Archive.search(params[:q])
     elsif params[:language]
-      @archives = Language.find(params[:language]).archives
+      @archives = Language.find(params[:language]).archives.includes(:document_type)
     elsif params[:author]
-      @archives = Author.find(params[:author]).archives
+      @archives = Author.find(params[:author]).archives.includes(:document_type, :language)
     else
-      @archives = Archive.all
+      @archives = Archive.all.includes(:document_type, :language)
     end
   end
 
