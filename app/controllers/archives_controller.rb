@@ -15,8 +15,10 @@ class ArchivesController < ApplicationController
       @archives = Language.find(params[:language]).archives.includes(:document_type)
     elsif params[:author]
       @archives = Author.find(params[:author]).archives.includes(:document_type, :language)
+    elsif params[:all]
+      @archives = Archive.all.reverse_order.includes(:document_type, :language)
     else
-      @archives = Archive.all.includes(:document_type, :language)
+      @archives = Archive.all.reverse_order.limit(50).includes(:document_type, :language)
     end
   end
 
