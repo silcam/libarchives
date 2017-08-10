@@ -1,4 +1,6 @@
 class Archive < ApplicationRecord
+  extend LabelWriter
+
   belongs_to :document_type
   belongs_to :language
   has_many :sent_bibliographies
@@ -90,5 +92,18 @@ class Archive < ApplicationRecord
 
   def to_s
     title
+  end
+
+  def self.labels_for(filename, archive_ids)
+    archives = Archive.where "id IN (?)", archive_ids
+    labels =archives.map do |archive|
+      title1 = archive.title
+      title2 = (archive.title != archive.english_title && !archive.english_title.blank?) ?
+                   archive.english_title :
+                   archive.french_title
+      authors = archive.authors.map{ |a| a.surname }.join(', ')
+      {title1: title1, title2: title2, authors: authors, year: archive.year, number: archive.number}
+    end
+    generate_labels filename, labels
   end
 end

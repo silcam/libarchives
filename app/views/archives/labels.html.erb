@@ -1,0 +1,25 @@
+<%= form_tag labels_archives_path do %>
+
+  <%= submit_tag 'Download', class: 'btn btn-primary btn-lg', data: {disable_with: false} %>
+
+  <label style="margin-top: 20px;">Archives to print labels for: </label>
+
+  <table class="table">
+    <% @archives.each do |archive| %>
+      <tr>
+        <td>
+          <%= check_box_tag 'archive_ids[]', archive.id %>
+        </td>
+        <td>
+          <%= archive.number %>
+        </td>
+        <td>
+          <%= archive.title %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= link_to 'See all archives', labels_archives_path(all: true) %>
+
+<% end %>

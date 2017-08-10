@@ -1,6 +1,6 @@
 class ArchivesController < ApplicationController
   before_action :set_archive, only: [:show, :edit, :update, :destroy]
-  skip_before_action :require_login, only: [:show, :index, :home]
+  skip_before_action :require_login, only: [:show, :index, :home, :labels, :generate_labels]
 
   def home
 
@@ -74,6 +74,20 @@ class ArchivesController < ApplicationController
       format.html { redirect_to archives_url, notice: 'Archive was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def labels
+    if params[:all]
+      @archives = Archive.all.reverse_order
+    else
+      @archives = Archive.all.reverse_order.limit(50)
+    end
+  end
+
+  def generate_labels
+    filepath = 'public/labels.pdf'
+    Archive.labels_for(filepath, params[:archive_ids])
+    send_file filepath
   end
 
   private

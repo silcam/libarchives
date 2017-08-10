@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   post '/login', to: 'login#login'
   get '/logout', to: 'login#logout'
   # resources :sent_bibliographies
-  resources :archives
+  resources :archives do
+    collection do
+      get 'labels'
+      post 'labels', to: 'archives#generate_labels'
+    end
+  end
   # resources :subcategories
   # resources :bibliography_styles
   # resources :fields
